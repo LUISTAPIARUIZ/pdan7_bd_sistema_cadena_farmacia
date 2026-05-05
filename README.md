@@ -1,4 +1,5 @@
 “Sistema de Gestión y Monitoreo de Inventario Inteligente para Cadena de Farmacias” 💊
+
 Contexto del negocio
 
 La cadena de farmacias SaludPlus Perú cuenta con varias sedes en Lima y provincias. Actualmente, el control de inventario se realiza de forma semi manual, lo que genera problemas como falta de stock, vencimiento de medicamentos, exceso de productos en algunas tiendas y demoras en la reposición.
@@ -94,6 +95,7 @@ productos comprados
 cantidad
 costo unitario
 fecha de vencimiento del lote
+
 5. 🧾 Ventas
 
 Los clientes pueden comprar uno o varios productos.
@@ -114,6 +116,7 @@ producto
 cantidad
 precio unitario
 subtotal
+
 6. 👤 Gestión de Clientes
 
 El sistema puede registrar clientes frecuentes.
