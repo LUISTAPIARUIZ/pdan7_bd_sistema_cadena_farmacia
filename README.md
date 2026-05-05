@@ -55,6 +55,7 @@ presentación
 precio de venta
 requiere receta médica
 estado
+
 3. 📦 Inventario por Sede
 
 Cada sede maneja su propio stock.
