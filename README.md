@@ -163,7 +163,3 @@ Un cliente puede realizar muchas ventas.
 Un producto puede tener varios lotes con diferentes fechas de vencimiento.
 Una alerta se genera para un producto específico en una sede específica.
 El stock se actualiza cuando se registra una compra o una venta.
-
-Tema propuesto
-
-Salud: Sistema de Gestión de Inventario Inteligente para Cadena de Farmacias.
