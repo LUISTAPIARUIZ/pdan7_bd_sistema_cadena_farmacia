@@ -66,7 +66,10 @@ CREATE TABLE producto (
 
     CONSTRAINT FK_producto_categoria
         FOREIGN KEY (categoria_id)
-        REFERENCES categoria_producto(id)
+        REFERENCES categoria_producto(id),
+
+    CONSTRAINT CK_producto_precio_venta
+        CHECK (precio_venta >= 0)
 );
 GO
 
@@ -84,10 +87,12 @@ CREATE TABLE inventario (
     CONSTRAINT FK_inventario_producto
         FOREIGN KEY (producto_id)
         REFERENCES producto(id),
-
     CONSTRAINT FK_inventario_sede
         FOREIGN KEY (sede_id)
-        REFERENCES sede(id)
+        REFERENCES sede(id),
+
+    CONSTRAINT CK_inventario_stock
+        CHECK (stock >= 0)
 );
 GO
 
@@ -106,7 +111,6 @@ CREATE TABLE venta (
     CONSTRAINT FK_venta_cliente
         FOREIGN KEY (cliente_id)
         REFERENCES cliente(id),
-
     CONSTRAINT FK_venta_sede
         FOREIGN KEY (sede_id)
         REFERENCES sede(id)
@@ -127,10 +131,16 @@ CREATE TABLE detalle_venta (
     CONSTRAINT FK_detalleVenta_venta
         FOREIGN KEY (venta_id)
         REFERENCES venta(id),
-
     CONSTRAINT FK_detalleVenta_producto
         FOREIGN KEY (producto_id)
-        REFERENCES producto(id)
+        REFERENCES producto(id),
+
+    CONSTRAINT CK_detalle_venta_unidades
+        CHECK (unidades > 0),
+    CONSTRAINT CK_detalle_venta_precio_unitario
+        CHECK (precio_unitario > 0),
+    CONSTRAINT CK_detalle_venta_subtotal
+        CHECK (subtotal >= 0)
 );
 GO
 
@@ -146,7 +156,6 @@ CREATE TABLE compra (
     CONSTRAINT FK_compra_proveedor
         FOREIGN KEY (proveedor_id)
         REFERENCES proveedor(id),
-
     CONSTRAINT FK_compra_sede
         FOREIGN KEY (sede_id)
         REFERENCES sede(id)
@@ -167,9 +176,15 @@ CREATE TABLE detalle_compra (
     CONSTRAINT FK_detalleCompra_compra
         FOREIGN KEY (compra_id)
         REFERENCES compra(id),
-
     CONSTRAINT FK_detalleCompra_producto
         FOREIGN KEY (producto_id)
-        REFERENCES producto(id)
+        REFERENCES producto(id),
+
+    CONSTRAINT CK_detalle_compra_unidades
+        CHECK (unidades > 0),
+    CONSTRAINT CK_detalle_compra_precio_unitario
+        CHECK (precio_unitario > 0),
+    CONSTRAINT CK_detalle_compra_subtotal
+        CHECK (subtotal >= 0)
 );
 GO
