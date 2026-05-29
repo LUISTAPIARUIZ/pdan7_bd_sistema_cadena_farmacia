@@ -123,7 +123,7 @@ GO
 CREATE TABLE detalle_venta (
     id INT IDENTITY(1,1) PRIMARY KEY,
     venta_id INT NOT NULL,
-    producto_id INT NOT NULL,
+    inventario_id INT NOT NULL,
     unidades INT NOT NULL,
     precio_unitario DECIMAL(10,2) NOT NULL,
     subtotal DECIMAL(10,2) NOT NULL,
@@ -132,8 +132,8 @@ CREATE TABLE detalle_venta (
         FOREIGN KEY (venta_id)
         REFERENCES venta(id),
     CONSTRAINT FK_detalleVenta_producto
-        FOREIGN KEY (producto_id)
-        REFERENCES producto(id),
+        FOREIGN KEY (inventario_id)
+        REFERENCES inventario(id),
 
     CONSTRAINT CK_detalle_venta_unidades
         CHECK (unidades > 0),
@@ -168,7 +168,7 @@ GO
 CREATE TABLE detalle_compra (
     id INT IDENTITY(1,1) PRIMARY KEY,
     compra_id INT NOT NULL,
-    producto_id INT NOT NULL,
+    inventario_id INT NOT NULL,
     unidades INT NOT NULL,
     precio_unitario DECIMAL(10,2) NOT NULL,
     subtotal DECIMAL(10,2) NOT NULL,
@@ -177,8 +177,8 @@ CREATE TABLE detalle_compra (
         FOREIGN KEY (compra_id)
         REFERENCES compra(id),
     CONSTRAINT FK_detalleCompra_producto
-        FOREIGN KEY (producto_id)
-        REFERENCES producto(id),
+        FOREIGN KEY (inventario_id)
+        REFERENCES inventario(id),
 
     CONSTRAINT CK_detalle_compra_unidades
         CHECK (unidades > 0),
