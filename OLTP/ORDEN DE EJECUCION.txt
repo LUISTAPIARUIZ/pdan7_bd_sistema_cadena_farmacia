@@ -1,0 +1,6 @@
+El orden de ejecución es el siguiente:  
+
+1.CreateDataBaseFarmacias.sql
+2.Consultas-Basicas-y-Avanzada.sql
+3.dataDummyWithProcedure.sql
+4.TrabajoFinal_CadenaFarmacia.sql
